@@ -1,0 +1,21 @@
+extends ../index.pug
+block content
+    section.hero.is-medium.is-dark.is-bold
+      .hero-body
+        .container
+          h1.title= title
+          h2.subtitle= subtitle
+    ul.container(style={'padding-top': '20px'})
+      each developer in developers  
+        a(href='/developers/'+developer.id)     
+          article(style={'padding-left': '10px'}).media
+            figure.media-left
+              p.image.is-128x128.is-hidden-mobile
+                img(src=developer.image)
+              p.image.is-64x64.is-hidden-tablet
+                img(src=developer.image)
+            .media-content
+              .content
+                h3= developer.name
+                p(style={'margin-bottom': 0})= 'Favourite Language:' + developer.favoriteLanguage
+                p(style={'margin-bottom': 0})= 'Gender: ' + developer.gender

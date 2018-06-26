@@ -6,6 +6,8 @@ var homepage = require('./homepage'),
     developersLanding = require('./developers-landing'),
     developersDetail = require('./developers-detail');
 
+app.set('views', '.');
+app.set('view engine', 'pug');
 
 app.get('/',homepage.controller);
 

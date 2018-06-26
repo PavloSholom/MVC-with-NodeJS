@@ -1,11 +1,12 @@
 var developersHelper = require('../helpers/developers');
+var model = require('./model');
 
 module.exports = function(req, res) {
   var developers = developersHelper.getAllDevelopers();
-  var developerIds = Object.keys(developers);
-  var developerName = developerIds.map(function(id) {
-    return developers[id].name;
-  });
-  var developerNameString = developerName.join(', ');
-  res.send(`Developers ${developerNameString}`);
+
+  res.render('developers-landing/view', model(
+    'Developers',
+    'Look at this nerds!!!',
+    developers
+  ));
 };

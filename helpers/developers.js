@@ -2,7 +2,12 @@ module.exports = {
   getDeveloperById: function(id) {
     var developers = this.getAllDevelopers();
 
-    var developer = developers[id];
+    var developersWithId = developers.filter(function(developer) {
+      return (developer.id === id);
+    })
+
+    var developer =  developersWithId[0];
+
     if (developer === undefined) {
       return {
         name: 'Nobody',
@@ -15,22 +20,28 @@ module.exports = {
   },
 
   getAllDevelopers: function() {
-    return {
-      'ryan': {
+    return [
+      {
+        id: 'ryan',
         name: 'Ryan Haskell-Glatz',
         favoriteLanguage: 'Elm',
-        gender: 'male'
+        gender: 'male',
+        image: 'https://onenorth.blob.core.windows.net/keystone/Keegan-Bowers_BW.jpg'
       },
-      'erik': {
+      {
+        id: 'erik',
         name: 'Erik Carron',
         favoriteLanguage: 'Elm',
-        gender: 'male'
+        gender: 'male',
+        image: 'https://onenorth.blob.core.windows.net/keystone/Kyle-Mattimore_BW_Cropped.jpg'
       },
-      'emma': {
+      {
+        id: 'emma',
         name: 'Emma Birdsong',
         favoriteLanguage: 'C#',
-        gender: 'female'
+        gender: 'female',
+        image: 'https://onenorth.blob.core.windows.net/keystone/Jackie-Huey_bw_cropped.jpg'
       }
-    };
+    ];
   }
 }
